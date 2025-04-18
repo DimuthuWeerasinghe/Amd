@@ -18,7 +18,7 @@
     
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li><a href="index.html" class="nav-link px-2 text-white">Home</a></li>
-              <li><a href="Service.html" class="nav-link px-2 text-white">Services</a></li>
+              <li><a href="Service.html"class="nav-link px-2 text-white">Services</a></li>
               <li><a href="Appoinments.html" class="nav-link px-2 text-white">Appointments</a></li>
               <li><a href="About.html" class="nav-link px-2 text-white">About Us</a></li>
               <li><a href="Contact.html" class="nav-link px-2 text-white">Contact Us</a></li>
@@ -43,6 +43,7 @@
           <div class="card shadow-sm">
             <img src="images/Home.jpg" alt=""><div class="card-body">
               <p class="card-text">This is a wider card with s</p>
+              <p>Price</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -58,6 +59,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -73,6 +75,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -88,6 +91,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -103,6 +107,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -118,6 +123,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -133,6 +139,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -148,6 +155,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -163,6 +171,7 @@
             <div class="card shadow-sm">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -174,20 +183,36 @@
             </div>
           </div>
 
-          <div class="col">
-            <div class="card shadow-sm">
+          <div class="col" >
+            <div class="card shadow-sm" id="test">
               <img src="images/Home.jpg" alt=""><div class="card-body">
                 <p class="card-text">This is a wider card with s</p>
+                <p>Price</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
-                  <small class="text-body-secondary">9 mins</small>
+                  <small class="text-body-secondary"></small>
                 </div>
               </div>
             </div>
           </div>
-    </div>  
+    </div> 
+    <script>
+      window.onload = function() {
+        fetch('https://fakestoreapi.com/products/1')
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+                document.getElementById('test').innerHTML = `
+                    <img src="${json.image}" alt="${json.title}" style="width:200px;">
+                    <p>${json.title}</p>
+                    <p>Price: ${json.price}</p>
+                `;
+            })
+            .catch(err => console.error('Fetch error:', err));
+    }
+    </script> 
 </body>
 </html>
