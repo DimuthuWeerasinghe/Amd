@@ -1,6 +1,6 @@
 async function Service() {
     try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('https://fakestoreapi.com/products?limit=6');
         const products = await response.json();
         console.log(products);
 
